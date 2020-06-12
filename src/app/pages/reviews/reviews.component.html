@@ -1,0 +1,32 @@
+<div class="reviews" *ngIf="guitarReviews">
+  <div class="top">
+    <h2 class="title">
+      Отзывы:
+    </h2>
+
+    <button class="btn btn-link" (click)="createReview()">Оставить отзыв</button>
+  </div>
+  <hr>
+  <ul class="list" *ngIf="guitarReviews?.length; else noReviews">
+    <li class="list-item" *ngFor="let review of guitarReviews">
+      <h4 class="name">{{ review.name }}</h4>
+      <div class="rate-date">
+        <span class="date">{{ review.date | date: 'dd:MM:yyyy': null : 'ru' }}</span>
+
+        <div class="rating">
+          <svg *ngFor="let i of [1, 2, 3, 4, 5]" xmlns="http://www.w3.org/2000/svg" [ngClass]="{'active': review.rating >= i}" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 473.486 473.486">
+            <polygon points="473.486,182.079 310.615,157.952 235.904,11.23 162.628,158.675 0,184.389 117.584,299.641 91.786,462.257   237.732,386.042 384.416,460.829 357.032,298.473 "/>
+          </svg>
+        </div>
+      </div>
+      <p class="text">{{ review.comment }}</p>
+      <p class="benefits"><span class="title">Достоинства:</span> {{ review.benefits }}</p>
+      <p class="limitations"><span class="title">Недостатки:</span> {{ review.limitations }}</p>
+    </li>
+  </ul>
+  <ng-template #noReviews>
+    <h3 class="no-reviews">Пока нету ни одного отзыва, оставьте отзыв первым!</h3>
+  </ng-template>
+</div>
+
+

@@ -1,0 +1,62 @@
+
+<mat-dialog-content class="review-dialog">
+  <h2 class="review-title">Осставьте свой отзыв!</h2>
+
+  <form [formGroup]="reviewForm">
+    <div class="top-row">
+      <div class="rating">
+        <h3 class="stars-title">Оцените Гитару в звездах:</h3>
+        <div class="validation" *ngIf="reviewForm.get('rating').invalid">
+          <p>*(Обязательно)</p>
+        </div>
+<!--        <input type="number" formControlName="rating">-->
+        <div class="stars-block">
+          <div class="star-item" *ngFor="let rate of [1, 2, 3, 4, 5]" (click)="setRating(rate)">
+            <svg [ngStyle]="{'fill': starRating >= rate ? '#03a719' : ''}"
+                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 473.486 473.486"
+            >
+              <polygon points="473.486,182.079 310.615,157.952 235.904,11.23 162.628,158.675 0,184.389 117.584,299.641 91.786,462.257   237.732,386.042 384.416,460.829 357.032,298.473 "/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-control" [ngClass]="{'invalid': reviewForm.get('comment').invalid && reviewForm.get('comment').touched}">
+      <label for="comment">Напишите свой комментарий:</label>
+      <textarea id="comment"  formControlName="comment"></textarea>
+      <div class="validation" *ngIf="reviewForm.get('comment').invalid && reviewForm.get('comment').touched">
+        <span>
+          Обязательное поле.
+        </span>
+      </div>
+    </div>
+
+    <div class="form-control" [ngClass]="{'invalid': reviewForm.get('benefits').invalid && reviewForm.get('benefits').touched}">
+      <label for="benefits">Преимущества:</label>
+      <input type="text" id="benefits" formControlName="benefits">
+      <div class="validation" *ngIf="reviewForm.get('benefits').invalid && reviewForm.get('benefits').touched">
+        <span>
+          Обязательное поле.
+        </span>
+      </div>
+    </div>
+
+    <div class="form-control" [ngClass]="{'invalid': reviewForm.get('limitations').invalid && reviewForm.get('limitations').touched}">
+      <label for="limitations">Недостатки:</label>
+      <input type="text" id="limitations" formControlName="limitations">
+      <div class="validation" *ngIf="reviewForm.get('limitations').invalid && reviewForm.get('limitations').touched">
+        <span>
+          Обязательное поле.
+        </span>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end" *ngIf="!loading; else loadingBlock">
+  <button class="btn btn-primary" [disabled]="reviewForm.invalid" (click)="postReview()">Отправить</button>
+  <button mat-button [mat-dialog-close]="readyToClose">Отмена</button>
+</mat-dialog-actions>
+<ng-template #loadingBlock>
+  <p class="loading-block">Отправляется...</p>
+</ng-template>

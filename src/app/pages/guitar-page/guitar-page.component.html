@@ -1,0 +1,33 @@
+<div class="guitar-page" *ngIf="guitar; else spinnerBlock">
+  <a routerLink="/" class="main-page-link">
+    <svg viewBox="0 0 16 16">
+      <path clip-rule="evenodd" d="m8.58125 1.18627c-.34769-.248359-.81477-.248359-1.16247 0l-7.000002 5c-.4494121.32101-.553504.94556-.232495 1.39497s.945557.5535 1.394967.23249l.41875-.2991v6.48537c0 .5523.44772 1 1 1h10c.5523 0 1-.4477 1-1v-6.48539l.4188.29912c.4494.32101 1.0739.21692 1.3949-.23249.3211-.44941.217-1.07396-.2324-1.39497l-1.5813-1.12947v-2.5568c0-.55228-.4477-1-1-1s-1 .44772-1 1v1.12823zm3.41875 4.89976-3.99998-2.85713-4.00002 2.85716v6.91394h8z" fill-rule="evenodd"></path>
+    </svg>
+    <span>На главную</span>
+  </a>
+  <div class="top-content">
+    <div class="guitars-gallery">
+      <ngx-slick-carousel
+        #slickModal="slick-carousel"
+        [config]="slideConfig"
+      >
+        <div ngxSlickItem *ngFor="let image of guitar['images']" class="slide">
+          <img src="{{ image }}" alt="" width="100%">
+        </div>
+      </ngx-slick-carousel>
+    </div>
+
+    <app-guitar-details [guitar]="guitar"></app-guitar-details>
+  </div>
+
+
+  <div>
+
+    <div class="reviews">
+      <app-reviews [guitarReviews]="guitar.reviews" [guitarId]="guitar.id"></app-reviews>
+    </div>
+  </div>
+</div>
+<ng-template #spinnerBlock>
+  <app-spinner></app-spinner>
+</ng-template>

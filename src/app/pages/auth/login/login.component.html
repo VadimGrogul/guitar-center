@@ -1,0 +1,32 @@
+<div class="login-page">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <app-alert-message></app-alert-message>
+
+    <div class="form-control" [ngClass]="{'invalid': loginForm.get('email').invalid && loginForm.get('email').touched}">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+      <div class="validation" *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+        <p *ngIf="loginForm.get('email').errors['required']">Обязательное поле.</p>
+        <p *ngIf="loginForm.get('email').errors['email']">E-Mail не валидный.</p>
+      </div>
+    </div>
+    <div class="form-control" [ngClass]="{'invalid': loginForm.get('password').invalid && loginForm.get('password').touched}">
+      <label for="password">Пароль:</label>
+      <input type="password" id="password" formControlName="password">
+      <div class="validation" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+        <p *ngIf="loginForm.get('password').errors['required']">Обязательное поле.</p>
+        <p *ngIf="loginForm.get('password').errors['minlength']">
+          Пароль должен быть не менее {{ loginForm.get('password').errors['minlength']['requiredLength'] }} символов.
+          Сейчас {{ loginForm.get('password').errors['minlength']['actualLength'] }}.
+        </p>
+      </div>
+    </div>
+    <div class="login-actions">
+      <div>
+        <button type="submit" [disabled]="loginForm.invalid || loading" class="btn btn-primary">Войти</button>
+        <button mat-button mat-dialog-close>Отмена</button>
+      </div>
+      <p class="register-text">Нету аккаунта? <a (click)="toRegisterPage()" class="btn-link">Зарегистрироваться</a></p>
+    </div>
+  </form>
+</div>

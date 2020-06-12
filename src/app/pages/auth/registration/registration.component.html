@@ -1,0 +1,41 @@
+<div class="registration-page">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <app-alert-message></app-alert-message>
+
+    <div class="form-control" [ngClass]="{'invalid': registrationForm.get('email').invalid && registrationForm.get('email').touched}">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+      <div class="validation" *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched">
+        <p *ngIf="registrationForm.get('email').errors['required']">Обязательное поле.</p>
+        <p *ngIf="registrationForm.get('email').errors['email']">E-Mail не валидный.</p>
+      </div>
+    </div>
+    <div class="form-control" [ngClass]="{'invalid': registrationForm.get('password').invalid && registrationForm.get('password').touched}">
+      <label for="password">Пароль:</label>
+      <input type="password" id="password" formControlName="password">
+      <div class="validation" *ngIf="registrationForm.get('password').invalid && registrationForm.get('password').touched">
+        <p *ngIf="registrationForm.get('password').errors['required']">Обязательное поле.</p>
+        <p *ngIf="registrationForm.get('password').errors['minlength']">
+          Пароль должен быть не менее {{ registrationForm.get('password').errors['minlength']['requiredLength'] }} символов.
+          Сейчас {{ registrationForm.get('password').errors['minlength']['actualLength'] }}.
+        </p>
+      </div>
+    </div>
+    <div class="form-control" [ngClass]="{'invalid': registrationForm.get('name').touched && registrationForm.get('name').invalid}">
+      <label for="name">Имя:</label>
+      <input type="text" id="name" formControlName="name">
+      <div class="validation" *ngIf="registrationForm.get('name').invalid && registrationForm.get('name').touched">
+        <p>Укажите свое имя.</p>
+      </div>
+    </div>
+
+    <div class="registration-action">
+      <div>
+        <button [disabled]="registrationForm.invalid || loading" type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        <button mat-button mat-dialog-close>Отмена</button>
+      </div>
+
+      <p>Уже есть аккаунт? <a (click)="toLoginPage()" class="btn-link">Войти</a></p>
+    </div>
+  </form>
+</div>

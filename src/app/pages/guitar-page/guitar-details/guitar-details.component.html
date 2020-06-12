@@ -1,0 +1,56 @@
+<div class="main-info">
+  <div class="availability">
+    <app-availability [guitar]="guitar"></app-availability>
+  </div>
+
+  <div class="info">
+    <h3 class="title">Yamaha F310</h3>
+    <app-price [price]="guitar.price" [salePrice]="guitar.salePrice"></app-price>
+    <hr>
+
+    <div class="characteristics">
+      <ul class="list">
+        <li>
+          <div class="char-title"><span>Марка:</span></div>
+          <div class="char-value">{{ guitar.name }}</div>
+        </li>
+        <li>
+          <div class="char-title"><span>Модель:</span></div>
+          <div class="char-value">{{ guitar.model }}</div>
+        </li>
+        <li>
+          <div class="char-title"><span>Тип:</span></div>
+          <div class="char-value">{{ guitar.type }}</div>
+        </li>
+        <li>
+          <div class="char-title"><span>Страна производитель:</span></div>
+          <div class="char-value">{{ guitar.country }}</div>
+        </li>
+        <li>
+          <div class="char-title"><span>Корпус:</span></div>
+          <div class="char-value">{{ guitar.bodyMaterial }}</div>
+        </li>
+        <li>
+          <div class="char-title"><span>Гриф:</span></div>
+          <div class="char-value">{{ guitar.fretboard }}</div>
+        </li>
+        <li>
+          <div class="char-title"><span>Накладка грифа:</span></div>
+          <div class="char-value">{{ guitar.fingerboard }}</div>
+        </li>
+        <li>
+          <div class="char-title"><span>К-во струн:</span></div>
+          <div class="char-value">{{ guitar.stringsCount }}</div>
+        </li>
+        <li>
+          <div class="char-title"><span>К-во ладов:</span></div>
+          <div class="char-value">{{ guitar.fretCount }}</div>
+        </li>
+        <li>
+          <div class="char-title"><span>Мензура:</span></div>
+          <div class="char-value">{{ guitar.scale }}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

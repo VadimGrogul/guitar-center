@@ -1,0 +1,16 @@
+.alert-message {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid;
+  margin: 10px 0;
+
+  &.success {
+    border-color: #03a719;
+    background-color: aliceblue;
+  }
+
+  &.danger {
+    border-color: #dc3545;
+    background-color: #f7e3e3;
+  }
+}

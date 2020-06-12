@@ -1,0 +1,61 @@
+.reviews {
+  border: 1px solid silver;
+  padding: 10px;
+  margin: 20px 0;
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .list {
+
+    &-item {
+      padding: 5px 0;
+      border-bottom: 1px solid silver;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .name {
+        font-size: 22px;
+      }
+
+      .rate-date {
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+
+        .rating {
+
+          svg {
+            width: 15px;
+            margin-right: 5px;
+            fill: #727272;
+
+            &.active {
+              fill: #03a719;
+            }
+          }
+        }
+      }
+
+      .text {
+        margin: 10px 0;
+      }
+
+      .benefits .title, .limitations .title {
+        color: #535050;
+        margin: 5px 0;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .no-reviews {
+    text-align: center;
+    padding: 20px 0;
+  }
+}
+

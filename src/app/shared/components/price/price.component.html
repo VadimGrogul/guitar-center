@@ -1,0 +1,14 @@
+<div class="price"
+     [ngStyle]="{
+                  'font-size': size === 'small' ? '0.8em' : '1em',
+                  'min-height': size === 'small' ? '40px' : '69px'
+                  }"
+     [ngClass]="{'sale' : salePrice}">
+  <div class="price-title">Цена:</div>
+  <div class="prices" *ngIf="salePrice">
+    <span class="current">{{ price }}</span>
+    <span class="diff">-{{ diff }} грн</span>
+  </div>
+  <span class="total" [ngStyle]="{'display': salePrice ? 'block' : 'inline-block'}">{{ total }} грн.</span>
+</div>
+

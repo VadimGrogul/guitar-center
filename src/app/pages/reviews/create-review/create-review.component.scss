@@ -1,0 +1,50 @@
+.review-dialog {
+  width: 600px;
+
+  .review-title {
+    border-bottom: 1px solid silver;
+    margin-bottom: 20px;
+  }
+
+  .top-row {
+    margin-bottom: 20px;
+
+    .stars-title {
+      font-size: 20px;
+      font-family: 'Nunito', sans-serif;
+      margin-bottom: 0;
+    }
+
+    .validation p {
+      color: #0c881d;
+      font-size: 14px;
+    }
+
+    .stars-block {
+      display: flex;
+      margin-top: 10px;
+
+      .star-item {
+        margin-right: 5px;
+
+        svg {
+          width: 30px;
+          fill: #535050;
+          cursor: pointer;
+          transition: .3s;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+.loading-block {
+  text-align: right;
+  margin-right: 20px;
+}

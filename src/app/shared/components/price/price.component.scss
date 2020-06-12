@@ -1,0 +1,43 @@
+.price {
+  font-weight: 600;
+  //min-height: 69px;
+  //font-size: 1em;
+
+  .price-title {
+    margin-right: 10px;
+    display: inline-block;
+    font-size: 1.4em;
+  }
+
+  .prices {
+    display: inline-block;
+  }
+
+  .total {
+    display: block;
+    color: green;
+    font-weight: 600;
+    font-size: 1.6em;
+  }
+
+  &.sale {
+    .prices {
+
+      .current {
+        color: #da580b;
+        font-size: 0.9em;
+        text-decoration: line-through;
+        font-weight: 400;
+        margin-right: 10px;
+      }
+
+      .diff {
+        display: inline-block;
+        padding: 3px 7px;
+        background:  #0eb524;
+        color: #ffffff;
+        border-radius: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<div class="availability" [ngClass]="guitar.availability ? 'in-stock' : 'not-available'">
+    <span *ngIf="guitar.availability; else notAvailable">
+      Есть в наличии
+    </span>
+  <ng-template #notAvailable>
+      <span>
+      Нету в наличии
+    </span>
+  </ng-template>
+</div>

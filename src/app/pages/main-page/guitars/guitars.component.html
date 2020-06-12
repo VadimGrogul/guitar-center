@@ -1,0 +1,8 @@
+<div class="guitars-list" *ngIf="guitars?.length; else spinner">
+  <app-guitar-card *ngFor="let guitar of guitars"
+    [guitar]="guitar"
+  ></app-guitar-card>
+</div>
+<ng-template #spinner>
+  <app-spinner></app-spinner>
+</ng-template>

@@ -1,0 +1,7 @@
+<div class="auth-modal">
+  <h3 mat-dialog-title class="auth-title">Авторизация</h3>
+  <mat-dialog-content>
+    <app-login [dialogData]="dialogData" *ngIf="authType === 'login'"></app-login>
+    <app-registration *ngIf="authType === 'registration'"></app-registration>
+  </mat-dialog-content>
+</div>

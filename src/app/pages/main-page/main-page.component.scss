@@ -1,0 +1,138 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  background-color: #3d7bea;
+  //border-bottom: 1px solid #3d7bea;
+  box-shadow: 0px 0px 8px 0px #3d7bea;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+
+      .title {
+        color: #ffffff;
+        font-family: 'Metal Mania', cursive;
+        font-style: italic;
+      }
+
+      svg {
+        width: 35px;
+        fill: #ffffff;
+        margin-left: 25px;
+      }
+    }
+
+    .users-block {
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+
+      .auth {
+        margin-right: 20px;
+
+        .user {
+          position: relative;
+
+          .actions-wrapper {
+            margin-right: 20px;
+
+            &:hover > .actions-popup {
+              display: block;
+            }
+          }
+
+          .sing-out-link {
+            color: #03a719;
+          }
+
+          .actions-popup {
+            display: none;
+            position: absolute;
+            bottom: -56px;
+            right: -20px;
+            width: 142px;
+            border: 1px solid silver;
+            background: #ffffff;
+
+            .item {
+              a {
+                font-size: 14px;
+                color: #111111;
+                width: 100%;
+                height: 100%;
+                display: inline-block;
+                padding: 5px;
+                text-align: center;
+                border-bottom: 1px solid silver;
+                transition: .3s;
+
+                &:last-child {
+                  border-bottom: none;
+                }
+
+                &:hover {
+                  background: #3d7bea;
+                  color: #ffffff;
+                }
+              }
+            }
+          }
+        }
+
+        .sign-in-link {
+          font-weight: 600;
+          transition: .3s;
+          display: inline-block;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+
+      .basketBtn {
+        position: relative;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        svg {
+          fill: #ffffff;
+          width: 30px;
+        }
+
+        .itemsCount {
+          position: absolute;
+          bottom: 0;
+          right: -13px;
+          font-size: 12px;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: #e00505;
+          color: #ffffff;
+          text-align: center;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+main {
+  padding-top: 90px;
+}

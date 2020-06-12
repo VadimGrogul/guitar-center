@@ -1,0 +1,170 @@
+/* You can add global styles to this file, and also import other style files */
+//@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', cursive;
+  font-size: 16px;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+.container {
+  width: 1124px;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-block;
+  background: #c9c8c8;
+  border: 1px solid silver;
+  padding: 6px 12px;
+  border-radius: 3px;
+  color: #111111;
+  cursor: pointer;
+  font-size: 16px;
+  outline: none;
+  margin-right: 10px;
+  transition: .2s;
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
+
+  &:disabled {
+    background-color: #888888;
+    border-color: #797979;
+    color: #1d1d1d;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn-primary {
+  background: none;
+  border-color: #3d7bea;
+  color: #3d7bea;
+}
+
+.btn-success {
+  background: none;
+  border-color: #03a719;
+  color: #03a719;
+}
+
+.btn-link {
+  border: none;
+  background: none;
+  color: darkred;
+  padding: 0;
+  color: #03a719;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+}
+
+input[type='number']:disabled {
+  background-color: transparent;
+}
+
+.form-column {
+  display: flex;
+
+  .form-control {
+    margin-right: 10px;
+  }
+}
+
+.form-control {
+  display: block;
+  color: #888;
+  margin-bottom: 1.6rem;
+
+  &.invalid {
+
+    input {
+      border-color: #dc3545;
+    }
+
+    .validation {
+      color: #dc3545;
+    }
+  }
+
+  .validation {
+    color: var(--primary-color);
+  }
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: silver;
+}
+
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+// for material
+html, body { height: 100%; }
+body { margin: 0 }
+
+
+
+/////  ------  ///////  modals root classes
+
+.basket-modal {
+  width: 830px;
+}
